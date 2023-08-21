@@ -1,0 +1,330 @@
+body{
+    background-color: #E5E5CB;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* header content */
+
+/* navbar */
+
+.flexbox{
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: right;
+    width: 80%;
+    left: 10%;
+    font-family: 'Lato', sans-serif;
+    margin-right: 20px;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+
+.flex-item{
+    position: relative;
+    margin-top: 20px;
+}
+
+.flex-item a{
+    color: #1A120B;
+}
+
+.flex-item img{
+    display: inline-block;
+    filter: invert(6%) sepia(8%) saturate(3457%) hue-rotate(347deg) brightness(90%) contrast(95%);
+}
+
+.flexText{
+    display: inline-block;
+    position: relative;
+    bottom: 10px;
+}
+
+.home-svg{
+    position: relative;
+    bottom: 2px;
+}
+
+.button{
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 2px solid #1A120B;
+}
+
+
+/* this is if we make a span eleemnt and want a link to be around it 
+.link {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+*/
+
+.button:hover{
+    background-color: #1A120B;
+}
+
+/* hover animation for buttons */
+.button:hover img{
+    filter: invert(100%) sepia(72%) saturate(286%) hue-rotate(356deg) brightness(96%) contrast(87%);
+}
+
+.button:hover a{
+    color: #E5E5CB;
+}
+
+
+
+
+/* animation for sun and image top left corner */
+
+
+.center {
+  position: absolute;
+  display: inline-block;
+  top: 70px;
+  left: 10%;
+  transform: translate(-50%,-50%);
+  animation: start 4s ease-in infinite;
+  clip-path: circle(60px);
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+
+.sky{
+    position: relative;
+    border-radius: 150px 150px 0px 0px;
+    right: 20px;
+    width: 220px;
+    height: 110px;
+    background-color: #7DDFFC;
+}
+
+.sand{
+    position: absolute;
+    top: 110px;
+    left: 2px;
+    z-index: 2;
+    border-radius: 0px 0px 150px 150px;
+    width:200px;
+    height: 90px;
+    background-color: #D5CEA3;
+}
+
+.left-triangle{
+    position: absolute;
+    left: 43%;
+    bottom: 26%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width:52.5px;
+    height: 40px;
+    clip-path: polygon(0% 100%, 100% 100%, 70% 0%);
+    background-color: white;
+    animation: triangle2 4s ease-out infinite backwards;
+}
+
+.right-triangle{
+    position: absolute;
+    left: 57.5%;
+    bottom: 26.3%;
+    background-color: #D3D3D3;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width:52.5px;
+    height: 40px;
+    clip-path: polygon(40% 100%, 20% 0%, 100% 100%);
+    animation: triangle1 4s ease-out infinite;
+}
+
+.sun{
+  position: relative;
+  top: 15px;
+  left: 70px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  background: radial-gradient(#d9e8cc, #efe0b1);
+  animation: circle 4s ease-out infinite forwards;
+}
+
+.shadow{
+  position: absolute;
+  width:200px;
+  height: 90px;
+  top: 110px;
+  left: 2px;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.2);
+  animation: shadow 4s ease-out infinite backwards;
+}
+
+@keyframes circle {
+  0% {
+      transform: rotate(90deg) 
+          translateY(85px);
+
+      background-color: #FDB813;;
+  }
+
+  50% {
+      transform: rotate(160deg) 
+          translateY(85px);
+      
+      background-color: #FFEF00;
+  }
+  100%{
+    transform: rotate(270deg) 
+          translateY(120px);
+    background-color: #FFEF00;
+  }
+}
+
+@keyframes start {
+  0%{
+    opacity: 0;
+  }
+  25%{
+    opacity: 1.0;
+  }
+  50%{
+    opacity: 1.0;
+  }
+  75%{
+    opacity: 1.0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+
+@keyframes triangle1 {
+  0%{
+    background-color: #bbbbbb;
+  }
+  47%{
+    background-color: #dedcdb;
+  }
+  55%{
+    background-color: #dedcdb;
+  }
+  100%{
+    background-color: white;
+  }
+}
+
+@keyframes triangle2 {
+  0%{
+    background-color: white;
+  }
+  50%{
+    background-color: white;
+  }
+  73%{
+    background-color: #dedcdb;
+  }
+  82%{
+    background-color: #dedcdb;
+  }
+  100%{
+    background-color: #bbbbbb;
+  }
+}
+
+@keyframes shadow {
+  0%{
+    clip-path: polygon(90% 5%, 25.5% 0%, 62.5% 0%);
+  }
+  50%{
+    clip-path: polygon(72% 20%, 25.5% 0%, 62.5% 0%);
+  }
+  100%{
+    clip-path: polygon(-10% 2%, 25.5% 0%, 62.5% 0%);
+  }
+  
+}
+
+
+
+/* horizontal rule styling for navbar */
+
+.header-divider, .bottomRule{
+  position: relative;
+  right: 7px;
+  margin-top: 20px;
+  border: solid #1A120B 1px;
+  width: 95%;
+}
+
+/* main section of home.ejs */
+
+.grid-container{
+  display: grid;
+  grid-template:  1fr 1fr / minmax(min(200px,25vw), 1fr) minmax(min(400px,50vw), 2fr) minmax(min(200px,25vw), 1fr);
+  margin: 20px;
+  gap: 20px;
+  
+}
+
+
+.schedule-area{
+  grid-area: 1 / 2 / span 2 / 3;
+}
+
+/* footer styles */
+
+footer{
+  position: relative;
+  left: 0;
+  top: 60vh;
+  width: 100%;
+  background-color: #E5E5CB;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.footer a{
+  padding: 2.2%;
+  padding-bottom: 0px;
+}
+
+.footer > div{
+  text-align: center;
+  margin: 25px;
+}
+
+.copywrite{
+  text-align: center;
+}
+
+.copywrite p{
+  color: black;
+  font-size: 1.2rem;
+}
+
+.twitter{
+  margin-bottom: 2px;
+}
+
+a > svg{
+  width:30px;
+}
+
+.footer-link:hover{
+  opacity: 0.6;
+}
