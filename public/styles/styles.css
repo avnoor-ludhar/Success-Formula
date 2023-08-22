@@ -10,6 +10,7 @@ a{
 
 /* navbar */
 
+
 .flexbox{
     position: relative;
     display: inline-flex;
@@ -265,20 +266,22 @@ a{
 
 .header-divider, .bottomRule{
   position: relative;
-  right: 7px;
+  right:5.5px;
   margin-top: 20px;
   border: solid #1A120B 1px;
   width: 95%;
+  margin-bottom: 0px;
 }
 
 /* main section of home.ejs */
 
 .grid-container{
+  position: relative;
   display: grid;
+  gap: 15px;
   grid-template:  1fr 1fr / minmax(min(200px,25vw), 1fr) minmax(min(400px,50vw), 2fr) minmax(min(200px,25vw), 1fr);
   margin: 20px;
-  gap: 20px;
-  
+  border-top: 2px solid #1A120B;
 }
 
 
@@ -286,12 +289,49 @@ a{
   grid-area: 1 / 2 / span 2 / 3;
 }
 
+/* top left cell*/
+
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexbook{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid #1A120B;
+  border-top: none; 
+}
+
+.bookContent{
+  width: 25vw;
+  height: 40vw;
+}
+
+.book-title{
+  padding: 5%;
+}
+
+.book-image{
+  width: auto;
+  height: 60%;
+}
+
+.book-description{
+  padding: 5%;
+  text-align: justify;
+}
+
+
 /* footer styles */
 
 footer{
   position: relative;
   left: 0;
-  top: 60vh;
+  bottom: 0;
   width: 100%;
   background-color: #E5E5CB;
   padding-top: 20px;
