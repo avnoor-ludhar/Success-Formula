@@ -312,17 +312,21 @@ a{
 }
 
 .book-title{
+  font-size: 3.2vw;
   padding: 5%;
+  font-family: 'ADLaM Display', cursive;
 }
 
 .book-image{
+  position: relative;
   width: auto;
   height: 60%;
+  bottom: 20px;
 }
 
 .book-description{
   padding: 5%;
-  text-align: justify;
+  text-align: left;
 }
 
 
