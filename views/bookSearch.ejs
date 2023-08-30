@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+
     </head>
     <body>
         <header>
@@ -39,15 +40,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="flex-item">
-                    <a href="/books">
-                        <div class="button">
-                            <img src="images/books.svg" id="books" class="create-image"/>
-                            <div class="flexText"><a href="/books">Books</a></div>
-                        </div>
-                    </a>
-                </div>
-                
+
                 <div class="flex-item">
                     <a href="/create">
                         <div class="button">
@@ -65,6 +58,51 @@
                         </div>
                     </a>
                 </div>
+
+                <div class="flex-item">
+                    <a href="/books">
+                        <div class="button">
+                            <img src="images/books.svg" id="books" class="create-image"/>
+                            <div class="flexText"><a href="/books">Books</a></div>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <!-- <hr class="header-divider"/> -->
+            <hr class="header-divider"/>
         </header>
+        <main>
+            <div class="flex">
+                <div class="bookSearchDiv flex">
+                    <form action="/searchBook" method="post">
+                        <div class="flex">
+                            <input class="bookSearchField" type="text" name="book" placeholder="Search your book!" autocomplete="off">
+                            <button class="bookSearchButton"type="submit" class="centerSearch"><img src="/images/search-book-svgrepo-com.svg"/></button>
+                        </div>   
+                        
+                    </form>
+                </div>
+            </div>
+            
+            <% if(books.length != 0) { %>
+                <div class="flexBookSearch">
+                    <form method="post" action="/books">
+                        <% books.forEach((book, idx)=>{ %>
+                            <button type="submit">
+                                <% if(typeof book.volumeInfo.imageLinks == 'undefined'){ %>
+                                    <div>
+                                        <h2><%= book.volumeInfo.title %></h2>
+                                        <img src=""
+                                    </div>
+                                    
+                                <% } else{ %>
+                                   <img src="<%= book.volumeInfo.imageLinks.thumbnail %>"/>
+                                   
+                                <% } %>
+                                
+                            </button>
+                        <% }); %>
+                    </form>
+                </div>
+            <% } %>
+        </main>
+<%- include("partials/footer.ejs") %>

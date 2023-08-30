@@ -63,6 +63,15 @@ a{
     border: 2px solid #1A120B;
 }
 
+#books{
+  width: 30px;
+  height: 30px;
+  filter: none;
+}
+
+.button:hover #books{
+  filter: invert(100%) sepia(72%) saturate(286%) hue-rotate(356deg) brightness(96%) contrast(87%);
+}
 
 /* this is if we make a span eleemnt and want a link to be around it 
 .link {
@@ -329,6 +338,59 @@ a{
   text-align: left;
 }
 
+
+/* book search section */
+
+.bookSearchDiv{
+  width: 40%;
+  min-width: 300px;
+  height: 10vh;
+  min-height: 40px;
+  margin-top: 7%;
+  margin-bottom: 5%;
+  background-color: whitesmoke;
+  border-radius: 40px;
+}
+
+.bookSearchField{
+  width: 260px;
+  border: none;
+  text-align: center;
+  height: 40px;
+  background-color: whitesmoke;
+  outline: none;
+  font-size: max(2lvw, 0.8rem);
+}
+
+
+.centerSearch{
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bookSearchButton{
+  border: 2px solid #1A120B;
+  border-radius: 20px;
+  background-color: #E5E5CB;
+  cursor: pointer;
+}
+
+.bookSearchButton img{
+  filter: invert(6%) sepia(8%) saturate(3457%) hue-rotate(347deg) brightness(90%) contrast(95%);
+}
+
+.bookSearchField:focus::placeholder {
+  color: transparent;
+}
+
+.bookSearchButton:hover img{
+  filter: invert(100%) sepia(72%) saturate(286%) hue-rotate(356deg) brightness(96%) contrast(87%);
+}
+
+.bookSearchButton:hover{
+  background-color: #1A120B;
+}
 
 /* footer styles */
 
