@@ -392,6 +392,13 @@ a{
   background-color: #1A120B;
 }
 
+.noImgDisplay{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 /* footer styles */
 
 footer{

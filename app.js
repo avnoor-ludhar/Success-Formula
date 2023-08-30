@@ -58,14 +58,14 @@ app.get("/", async (req, res)=>{
             img: response.data.volumeInfo.imageLinks.thumbnail,
             description: response.data.volumeInfo.description
         }
-        res.render("home.ejs", {book: book});
+        res.render("home.ejs", {book: []});
     } catch(err){
         console.log(err);
     }
 });  
 
 app.get("/searchBook", async(req, res)=>{
-    res.render("bookSearch.ejs", {books: bookSearchResults});
+    res.render("bookSearch.ejs", {books: []});
 });
 
 app.post("/searchBook", async(req, res)=>{

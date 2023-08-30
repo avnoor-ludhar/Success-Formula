@@ -89,9 +89,9 @@
                         <% books.forEach((book, idx)=>{ %>
                             <button type="submit">
                                 <% if(typeof book.volumeInfo.imageLinks == 'undefined'){ %>
-                                    <div>
-                                        <h2><%= book.volumeInfo.title %></h2>
-                                        <img src=""
+                                    <div class="noImgDisplay">
+                                        <p><%= book.volumeInfo.title %></p>
+                                        <img src="/images/error-svgrepo-com.svg" />
                                     </div>
                                     
                                 <% } else{ %>
