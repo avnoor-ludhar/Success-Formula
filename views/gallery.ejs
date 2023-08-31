@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+
+<main>
+    <div class="flex-wrap">
+        <% library.forEach((book)=>{ %>
+            <div class="galleryItem flex">
+                <h2><%= book.title %></h2>
+                <img src="<%= book.img %>" />
+                <p><%= book.description %></p>
+            </div>
+        <% }); %>
+        
+    </div>
+</main>
+
+<%- include("partials/footer.ejs") %>

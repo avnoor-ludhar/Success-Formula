@@ -42,6 +42,8 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
+const currUser = User.findOne({_id: "64ee73aa43df42a8ae27dc11"});
+
 const config = {
     params: { key: apiKey }
 };
@@ -58,11 +60,12 @@ app.get("/", async (req, res)=>{
             img: response.data.volumeInfo.imageLinks.thumbnail,
             description: response.data.volumeInfo.description
         }
-        res.render("home.ejs", {book: []});
+
+        res.render("home.ejs", {book: book});
     } catch(err){
         console.log(err);
     }
-});  
+});
 
 app.get("/searchBook", async(req, res)=>{
     res.render("bookSearch.ejs", {books: []});
@@ -75,6 +78,34 @@ app.post("/searchBook", async(req, res)=>{
     } catch(err){
         console.log(err);
     }
+});
+
+app.get("/books", async (req, res)=>{
+    const currUser = await User.findOne({_id: "64ee73aa43df42a8ae27dc11"});
+    console.log(currUser.library)
+    res.render("gallery.ejs", {library: currUser.library});
+});
+
+app.post("/books", async (req, res)=>{
+    const selectedBook = JSON.parse(req.body.chosenBook);
+
+    const book = new Book({
+        title: selectedBook.title,
+        read: false,
+        description: selectedBook.description
+    });
+    
+    if(typeof selectedBook.imageLinks === "undefined"){ 
+        book.img = "/images/error-svgrepo-com.svg";
+    } else {
+        book.img = selectedBook.imageLinks.thumbnail;
+    }
+
+    const foundUser = await User.findOne({username: "Avnoor"});
+    foundUser.library.push(book);
+    await foundUser.save();
+
+    res.redirect("/books");
 });
 
 app.listen(port, ()=>{
