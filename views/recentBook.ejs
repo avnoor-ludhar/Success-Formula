@@ -7,13 +7,14 @@
         </div>
         
     </div>
-    <div class="flex-wrap">
+    <form method="post" action="/" class="flex-wrap">
         <% library.forEach((book)=>{ %>
-            <div class="galleryItem flex">
+            <button class="galleryItem flex" type="submit" name="newBookID" value="<%= book._id %>">
                 <img src="<%= book.img %>" />
-            </div>
-            <div></div>
+            </button>
         <% }); %>
+    </form>
+        
         
     </div>
 </main>

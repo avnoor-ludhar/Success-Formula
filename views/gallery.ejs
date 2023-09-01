@@ -8,17 +8,15 @@
         </div>
         
     </div>
-    <div class="flex-wrap">
+    
+    <form action="/books/delete" method="post" class="flex-wrap">
         <% library.forEach((book)=>{ %>
-            <div class="galleryItem flex">
-                <!-- <h2><%= book.title %></h2> -->
+            <button class="galleryItem flex" type="submit" name="deleteBook" value="<%= book._id %>">
                 <img src="<%= book.img %>" />
-                <!-- <p><%= book.description %></p> -->
-            </div>
+            </button>
             <div></div>
         <% }); %>
-        
-    </div>
+    </form>
 </main>
 
 <%- include("partials/footer.ejs") %>

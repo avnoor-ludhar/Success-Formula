@@ -36,6 +36,7 @@ const Book = mongoose.model("Book", bookSchema);
 const userSchema = new mongoose.Schema({
     username: String,
     library: [bookSchema],
+    recentBook: bookSchema,
     gratitudes: [String],
     goals: listSchema
 });
@@ -51,14 +52,33 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", async (req, res)=>{
     try{
-        const response = await axios.get("https://www.googleapis.com/books/v1/volumes/OSchEAAAQBAJ", config);
+        const currUser = await User.findOne({_id: "64ee73aa43df42a8ae27dc11"});
 
-       const book = await book.findOne({_id: "64f0fd73d4c1f070b0622818"});
-
-        res.render("home.ejs", {book: book});
+        res.render("home.ejs", {book: currUser.recentBook});
     } catch(err){
         console.log(err);
     }
+});
+
+app.post("/", async (req, res)=>{
+    try{
+        const newRecentBookID =  req.body.newBookID ;
+        const currUser = await User.findOne({_id: "64ee73aa43df42a8ae27dc11"});
+
+        currUser.library.forEach((book)=>{
+
+            //toString because we got returned a bson object as the objectid
+            if(book._id.toString() === newRecentBookID){
+                currUser.recentBook = book;
+            }
+        });
+        await currUser.save();
+
+        res.redirect("/");
+    } catch(err){
+        console.log(err);
+    }
+        
 });
 
 app.get("/searchBook", async(req, res)=>{
@@ -79,6 +99,16 @@ app.get("/books", async (req, res)=>{
     res.render("gallery.ejs", {library: currUser.library});
 });
 
+app.post("/books/delete", async (req, res)=>{
+    try{
+        const bookDeleteID = req.body.deleteBook;
+        await User.findOneAndUpdate({_id: "64ee73aa43df42a8ae27dc11"}, {$pull: {library: {_id: bookDeleteID}}});
+        res.redirect("/books");
+    } catch(err){
+        console.log(err);
+    }
+});
+
 app.post("/books", async (req, res)=>{
     const selectedBook = JSON.parse(req.body.chosenBook);
 
@@ -94,7 +124,7 @@ app.post("/books", async (req, res)=>{
         book.img = selectedBook.imageLinks.thumbnail;
     }
 
-    const foundUser = await User.findOne({username: "Avnoor"});
+    const foundUser = await User.findOne({_id: "64ee73aa43df42a8ae27dc11"});
     foundUser.library.push(book);
     await foundUser.save();
 
