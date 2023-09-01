@@ -73,9 +73,14 @@
             <div class="grid-container">
                 <div class="grid-item flex">
                     <div class="bookContent flexbook">
-                        <h2 class="book-title"><%= book.title %></h2>
+                        <h2 class="book-title">Recently Read</h2>
                         <img class="book-image" src="<%= book.img %>"/>
-                        <p class="book-description">Description: <%= book.description.substring(0,100).replaceAll('<p>', ' ').replaceAll('</p>', ' ').replaceAll("<br>", " ") + "..." %><a href="/gallery" >Read More</a></p>
+                        <a href="/recentBook">
+                            <div class="button" style="margin-bottom: 7%;">
+                                <img src="images/book-sparkles-svgrepo-com.svg" class="create-image"/>
+                                <div class="flexText"><a href="/recentBook">Change</a></div>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="grid-item schedule-area"></div>

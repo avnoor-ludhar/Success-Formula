@@ -42,8 +42,6 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-const currUser = User.findOne({_id: "64ee73aa43df42a8ae27dc11"});
-
 const config = {
     params: { key: apiKey }
 };
@@ -54,12 +52,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get("/", async (req, res)=>{
     try{
         const response = await axios.get("https://www.googleapis.com/books/v1/volumes/OSchEAAAQBAJ", config);
-        
-        const book = {
-            title: response.data.volumeInfo.title,
-            img: response.data.volumeInfo.imageLinks.thumbnail,
-            description: response.data.volumeInfo.description
-        }
+
+       const book = await book.findOne({_id: "64f0fd73d4c1f070b0622818"});
 
         res.render("home.ejs", {book: book});
     } catch(err){
@@ -82,7 +76,6 @@ app.post("/searchBook", async(req, res)=>{
 
 app.get("/books", async (req, res)=>{
     const currUser = await User.findOne({_id: "64ee73aa43df42a8ae27dc11"});
-    console.log(currUser.library)
     res.render("gallery.ejs", {library: currUser.library});
 });
 
@@ -106,6 +99,11 @@ app.post("/books", async (req, res)=>{
     await foundUser.save();
 
     res.redirect("/books");
+});
+
+app.get("/recentBook", async (req, res)=>{
+    const currUser = await User.findOne({_id: "64ee73aa43df42a8ae27dc11"});
+    res.render("recentBook.ejs", {library: currUser.library});
 });
 
 app.listen(port, ()=>{

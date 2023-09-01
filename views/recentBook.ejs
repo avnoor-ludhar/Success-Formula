@@ -3,17 +3,14 @@
 <main>
     <div class="flex galleryTitleDiv">
         <div>
-            <h1 class="galleryTitle">Book Library</h1>
-            <p class="galleryContent">Click on book to delete</p>
+            <h1 class="galleryTitle">Select Recent Book</h1>
         </div>
         
     </div>
     <div class="flex-wrap">
         <% library.forEach((book)=>{ %>
             <div class="galleryItem flex">
-                <!-- <h2><%= book.title %></h2> -->
                 <img src="<%= book.img %>" />
-                <!-- <p><%= book.description %></p> -->
             </div>
             <div></div>
         <% }); %>
