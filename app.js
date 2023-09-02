@@ -91,7 +91,7 @@ app.get("/", async (req, res)=>{
 
 app.post("/todo", async (req, res)=>{
     try{
-        const todoList = await List.findById("64f3539452d300fb323441d1");
+        const todoList = await List.findById(todoListID);
 
         //remember about ["todo"]
         const newTodo = new Item({
@@ -110,7 +110,7 @@ app.post("/todo", async (req, res)=>{
 
 app.post("/todo/delete", async (req, res)=>{
     const deleteID = req.body.deleteTodo;
-    await List.findOneAndUpdate({_id: "64f3539452d300fb323441d1"}, {$pull: {items: {_id: deleteID}}});
+    await List.findOneAndUpdate({_id: todoListID}, {$pull: {items: {_id: deleteID}}});
 
     res.redirect("/");
 });
@@ -118,7 +118,7 @@ app.post("/todo/delete", async (req, res)=>{
 
 app.post("/goals", async (req, res)=>{
     try{
-        const goalsList = await List.findById("64f3539452d300fb323441d0");
+        const goalsList = await List.findById(goalsListID);
 
         //remember about ["todo"]
         const newGoal = new Item({
@@ -135,8 +135,8 @@ app.post("/goals", async (req, res)=>{
 });
 
 app.post("/goals/delete", async (req, res)=>{
-    const deleteID = req.body.deleteTodo;
-    await List.findOneAndUpdate({_id: "64f3539452d300fb323441d0"}, {$pull: {items: {_id: deleteID}}});
+    const deleteID = req.body.deleteGoal;
+    await List.findOneAndUpdate({_id: goalsListID}, {$pull: {items: {_id: deleteID}}});
     
     res.redirect("/");
 });
