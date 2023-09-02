@@ -288,7 +288,7 @@ a{
   position: relative;
   display: grid;
   gap: 15px;
-  grid-template:  1fr 1fr / minmax(min(200px,25vw), 1fr) minmax(min(400px,50vw), 2fr) minmax(min(200px,25vw), 1fr);
+  grid-template:  1fr 1fr / minmax(min(200px,25vw), 1fr) minmax(min(400px,50vw), 1.8fr) minmax(min(200px,25vw), 1.2fr);
   margin: 20px;
   border-top: 2px solid #1A120B;
 }
@@ -336,6 +336,115 @@ a{
 .book-description{
   padding: 5%;
   text-align: left;
+}
+
+
+/* todo list and goals list styling */
+
+.todoList{
+  text-align: center;
+}
+
+.title{
+  background-color: #D5CEA3;
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  padding-top:1px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: none;
+}
+
+.title h1{
+  position: relative;
+  bottom: 8px;
+}
+
+
+.newTodoItemDiv{
+  width: 100%;
+  height: 50px;
+  background-color: whitesmoke;
+  margin: auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
+.todoItem{
+  display: flex;
+  flex-direction: row;
+  background-color: whitesmoke;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  margin: auto;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: max(1.25lvw, 0.8rem);
+}
+
+.strikeThrough{
+  text-decoration: line-through;
+}
+
+.newTodoInput{
+  width: 80%;
+  border: none;
+  text-align: center;
+  height: 40px;
+  margin-top: 1px;
+  background-color: whitesmoke;
+  outline: none;
+  border-bottom: 1px solid black;
+  font-size: max(1.25lvw, 0.8rem);
+}
+
+.newTodoInput:focus::placeholder {
+  color: transparent;
+}
+
+.todoContent{
+  margin-left: 5%;
+  max-width: 280px;
+}
+
+.submitButton{
+  border: none;
+  background-color: #D5CEA3;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 1%;
+  bottom: 4px;
+  left: 4px;
+  cursor: pointer;
+}
+
+.checkBoxButton{
+  accent-color: #1A120B;
+}
+
+.line1{
+  position: absolute;
+  width: 19px;
+  height: 4px;
+  background-color: #1A120B;
+  right: 5.3px;
+  bottom: 12.5px;
+}
+
+.line2{
+  position: absolute;
+  width: 19px;
+  height: 4px;
+  right: 5.3px;
+  bottom: 12.5px;
+  background-color: #1A120B;
+  transform: rotate(90deg);
 }
 
 
