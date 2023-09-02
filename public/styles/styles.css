@@ -377,6 +377,12 @@ a{
 
 .todoList{
   text-align: center;
+  margin-top: 5%;
+}
+
+.goalList{
+  text-align: center;
+  margin-top: 8%;
 }
 
 .title{
@@ -388,9 +394,9 @@ a{
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   margin: auto;
-  margin-top: 5%;
   margin-bottom: none;
 }
+
 
 .title h1{
   position: relative;
