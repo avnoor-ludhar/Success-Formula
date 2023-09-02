@@ -1,15 +1,12 @@
 <%- include("partials/header.ejs") %>
         <main>
             <div class="flex">
-                <div class="bookSearchDiv flex">
-                    <form action="/searchBook" method="post">
+                    <form action="/searchBook" method="post" class="bookSearchDiv flex">
                         <div class="flex">
                             <input class="bookSearchField" type="text" name="book" placeholder="Search your book!" autocomplete="off">
                             <button class="bookSearchButton"type="submit" class="centerSearch"><img src="/images/search-book-svgrepo-com.svg"/></button>
                         </div>   
-                        
                     </form>
-                </div>
             </div>
             
             <% if(books.length != 0) { %>
