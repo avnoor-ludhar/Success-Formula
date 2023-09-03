@@ -352,6 +352,11 @@ a{
   width: auto;
   height: 60%;
   bottom: 20px;
+  margin-bottom: 2%;
+  padding: 10px;
+  background: #1A120B;
+  box-shadow: 4px 8px 16px 0 rgba(26,18,11,0.8);
+	overflow: hidden;
 }
 
 .book-description{

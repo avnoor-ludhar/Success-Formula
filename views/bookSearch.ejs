@@ -11,9 +11,9 @@
             
             <% if(books.length != 0) { %>
                 <div class="flexBookSearch">
-                    <form method="post" action="/books">
+                    <form method="post" action="/books" class="flex-wrap">
                         <% books.forEach((book, idx)=>{ %>
-                            <button type="submit" name="chosenBook" value="<%= JSON.stringify(book.volumeInfo) %>">
+                            <button type="submit" class="galleryItem flex" style="background-color: #D5CEA3;" name="chosenBook" value="<%= JSON.stringify(book.volumeInfo) %>">
                                 <% if(typeof book.volumeInfo.imageLinks == 'undefined'){ %>
                                     <div class="noImgDisplay">
                                         <p><%= book.volumeInfo.title %></p>
