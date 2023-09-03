@@ -219,6 +219,10 @@ app.get("/recentBook", async (req, res)=>{
     res.render("recentBook.ejs", {library: currUser.library});
 });
 
+app.get("/schedule", (req, res)=>{
+    res.render("schedule.ejs");
+});
+
 app.listen(port, ()=>{
     console.log("listening on port 3000");
 });
