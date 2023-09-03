@@ -63,6 +63,12 @@ a{
     border: 2px solid #1A120B;
 }
 
+.button .extraBootstrap{
+  position: relative;
+  top: 8px;
+  padding: 5px;
+}
+
 #books{
   width: 30px;
   height: 30px;
@@ -282,6 +288,16 @@ a{
   border: solid #1A120B 1px;
   width: 95%;
   margin-bottom: 0px;
+}
+
+/* for bootstrap */
+
+.bootstrapHeader{
+  position: relative;
+  left: 15px;
+  border: solid #1A120B 2px;
+  width: 95%;
+  margin-left: 10px;
 }
 
 /* main section of home.ejs */
@@ -593,6 +609,17 @@ a{
 
 .galleryContent{
   font-family: 'Merriweather Sans', sans-serif;
+}
+
+/* create schedule */
+
+.createSchedule{
+  display: flex;
+  flex-direction: row;
+}
+
+.createScheduleItem{
+  width: 50%
 }
 
 /* footer styles */

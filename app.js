@@ -223,6 +223,14 @@ app.get("/schedule", (req, res)=>{
     res.render("schedule.ejs");
 });
 
+app.get("/create", (req, res)=>{
+    res.render("create.ejs");
+});
+
+app.post("/create", (req,res)=>{
+
+});
+
 app.listen(port, ()=>{
     console.log("listening on port 3000");
 });
