@@ -65,28 +65,18 @@
         <main>
             <div class="createSchedule">
                 <div class="createScheduleItem flex">
+                    <h2>
+                        <%= dayOfWeek %>
+                    </h2>
                     <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div class="fw-bold">Subheading</div>
-                            Content for list item sadjklfndajsnfkjasjfsdjkskfsdjfsdfnsj fsdj
-                        </div>
+                        <% tasks.forEach((task)=>{ %>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold"><%= task.startTime %> - <%= endTime %></div>
+                                <%= task.description %>
+                            </div>
                         <span class="badge bg-primary rounded-pill">1</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div class="fw-bold">Subheading</div>
-                            Content for list item
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div class="fw-bold">Subheading</div>
-                            Content for list item
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                        </li>
+                        <% }); %>
                     </ul>
                 </div>
                 <div class="createScheduleItem">
@@ -100,7 +90,7 @@
                             <label class="form-label">Description</label>
                             <textarea class="form-control" name="taskDescription" rows="3"></textarea>
                         </div>
-                        <button type="submit" name="button" class="btn btn-outline-dark mt-2">Publish</button>
+                        <button type="submit" name="button" class="btn btn-outline-dark mt-2">Create</button>
                     </form>
                 </div>
             </div>

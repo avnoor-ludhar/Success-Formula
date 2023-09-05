@@ -19,20 +19,6 @@ const itemsSchema = new mongoose.Schema({
   
 const Item = mongoose.model("Item", itemsSchema);
 
-const item1 = new Item({
-    name: "eat"
-});
-
-const item2 = new Item({
-    name: "sleep"
-});
-
-const item3 = new Item({
-    name: "repeat"
-});
-
-const defaultItems = [item1, item2, item3];
-
 //List schema and model
 const listSchema = new mongoose.Schema({
     name: String,
@@ -52,14 +38,39 @@ const bookSchema = new mongoose.Schema({
 
 const Book = mongoose.model("Book", bookSchema);
 
+// day schedule schema and task schema
 
-//USER SCHEMA AND MODEL
+
+const taskSchema = new mongoose.Schema({
+    startTime:  {
+        type: String,
+        required: [true, "Start time required"]
+    },
+    endTime: {
+        type: String,
+        required: [true, "End time required"]
+    },
+    description: String
+})
+
+const Task = mongoose.model("Task", taskSchema);
+
+const daySchema = new mongoose.Schema({
+    dayOfWeek: String,
+    tasks: [taskSchema]
+});
+
+const Day = mongoose.model("Day", daySchema);
+
+
+// USER SCHEMA AND MODEL
 const userSchema = new mongoose.Schema({
     username: String,
     library: [bookSchema],
     recentBook: bookSchema,
     gratitudes: [String],
-    goals: listSchema
+    goals: listSchema,
+    todaySchedule: daySchema
 });
 
 const User = mongoose.model("User", userSchema);
@@ -223,12 +234,29 @@ app.get("/schedule", (req, res)=>{
     res.render("schedule.ejs");
 });
 
-app.get("/create", (req, res)=>{
-    res.render("create.ejs");
+app.get("/create", async (req, res)=>{
+    const foundUser = await User.findOne({_id: userID});
+    res.render("create.ejs", {dayOfWeek: foundUser.todaySchedule.dayOfWeek, tasks: foundUser.todaySchedule.tasks});
 });
 
-app.post("/create", (req,res)=>{
+app.post("/create", async (req,res)=>{
+    try{
+        var foundUser = await User.findOne({_id: userID});
+        
+        const task1 = new Task({
+            startTime: req.body.startTime,
+            endTime: req.body.endTime,
+            description: req.body.taskDescription
+        });
 
+        foundUser.tasks.push(task1);
+
+        await foundUser.save();
+
+        res.redirect("/create");
+    } catch(err){
+        console.log(err);
+    }
 });
 
 app.listen(port, ()=>{
