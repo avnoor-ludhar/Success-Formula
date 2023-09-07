@@ -256,8 +256,10 @@ app.post("/create", async (req,res)=>{
 
             res.redirect("/create");
         } else{
-            await foundUser.todaySchedule.updateOne({$pull: {tasks: {_id: req.body.delSchedID}}});
-            res.redirect("/create");
+            //todo: we need to make the daySchema ref an id for a daySchema with name today
+            //then we need to send back the id of the day schema find the day schema and then use the
+            //$pull mongodb selector to delete the value from the array of tasks 
+            await currUser.save();
         }
         
     } catch(err){
