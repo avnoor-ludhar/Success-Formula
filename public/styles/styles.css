@@ -627,6 +627,12 @@ a{
   width: 50%;
 }
 
+.schedule{
+  position: relative;
+  top: 20px;
+  margin-left: 40px;
+}
+
 /* footer styles */
 
 footer{

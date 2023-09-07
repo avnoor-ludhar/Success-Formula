@@ -242,18 +242,24 @@ app.get("/create", async (req, res)=>{
 app.post("/create", async (req,res)=>{
     try{
         var foundUser = await User.findOne({_id: userID});
+        if(req.body.contentType === "addItem"){
         
-        const task1 = new Task({
-            startTime: req.body.startTime,
-            endTime: req.body.endTime,
-            description: req.body.taskDescription
-        });
+            const task = new Task({
+                startTime: req.body.startTime,
+                endTime: req.body.endTime,
+                description: req.body.taskDescription
+            });
 
-        foundUser.tasks.push(task1);
+            foundUser.todaySchedule.tasks.push(task);
 
-        await foundUser.save();
+            await foundUser.save();
 
-        res.redirect("/create");
+            res.redirect("/create");
+        } else{
+            await foundUser.todaySchedule.updateOne({$pull: {tasks: {_id: req.body.delSchedID}}});
+            res.redirect("/create");
+        }
+        
     } catch(err){
         console.log(err);
     }
