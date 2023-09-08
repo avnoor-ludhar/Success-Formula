@@ -76,8 +76,8 @@
                                     <div class="fw-bold"><%= task.startTime %> - <%= task.endTime %></div>
                                     <%= task.description %>
                                 </div>
+                                <input type="hidden" name="contentType" value="<%="remItem"%>"/>
                                 <button type="submit" name="delSchedID" value="<%= task._id %>">del</button>
-                                <input type="hidden" name="content-type" value="remItem"/>
                             <% }); %>
                         </form>
                     </ul>
@@ -92,7 +92,7 @@
                             <input type="time" class="form-control" name="endTime">
                             <label class="form-label">Description</label>
                             <textarea class="form-control" name="taskDescription" rows="3"></textarea>
-                            <input type="hidden" name="content-type" value="addItem"/>
+                            <input type="hidden" name="contentType" value="<%= "addItem" %>"/>
                         </div>
                         <button type="submit" name="button" class="btn btn-outline-dark mt-2">Create</button>
                     </form>

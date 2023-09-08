@@ -242,6 +242,7 @@ app.get("/create", async (req, res)=>{
 app.post("/create", async (req,res)=>{
     try{
         var foundUser = await User.findOne({_id: userID});
+
         if(req.body.contentType === "addItem"){
         
             const task = new Task({
@@ -256,10 +257,18 @@ app.post("/create", async (req,res)=>{
 
             res.redirect("/create");
         } else{
-            //todo: we need to make the daySchema ref an id for a daySchema with name today
-            //then we need to send back the id of the day schema find the day schema and then use the
-            //$pull mongodb selector to delete the value from the array of tasks 
-            await currUser.save();
+
+            foundUser.todaySchedule.tasks.forEach((task, idx)=>{
+
+                //toString because we got returned a bson object as the objectid
+                if(task._id.toString() === req.body.delSchedID){
+                    foundUser.todaySchedule.tasks.splice(idx,idx+1);
+                }
+            });
+
+            await foundUser.save();
+
+            res.redirect("/create");
         }
         
     } catch(err){
