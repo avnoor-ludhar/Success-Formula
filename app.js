@@ -236,7 +236,8 @@ app.get("/schedule", (req, res)=>{
 
 app.get("/create", async (req, res)=>{
     const foundUser = await User.findOne({_id: userID});
-    res.render("create.ejs", {dayOfWeek: foundUser.todaySchedule.dayOfWeek, tasks: foundUser.todaySchedule.tasks});
+
+    res.render("create.ejs", {dayOfWeek: foundUser.todaySchedule.dayOfWeek, tasks: foundUser.todaySchedule.tasks.sort()});
 });
 
 app.post("/create", async (req,res)=>{
@@ -274,6 +275,10 @@ app.post("/create", async (req,res)=>{
     } catch(err){
         console.log(err);
     }
+});
+
+app.post("/create/home", (req, res)=>{
+    res.redirect("/home")
 });
 
 app.listen(port, ()=>{

@@ -77,10 +77,13 @@
                                     <%= task.description %>
                                 </div>
                                 <input type="hidden" name="contentType" value="<%="remItem"%>"/>
-                                <button type="submit" name="delSchedID" value="<%= task._id %>" class="btn btn-outline-dark mt-2 mx-2">del</button>
+                                <button type="submit" name="delSchedID" value="<%= task._id %>" class="btn btn-dark mt-3 mx-2">del</button>
                             <% }); %>
                         </form>
                     </ul>
+                    <form action="/create/home" method="post" class="flex mt-5">
+                        <button type="submit" class="btn btn-outline-dark">Create</button>
+                    </form>
                 </div>
                 <div class="createScheduleItem">
                     <h1 class="flex">Add Task</h1>
@@ -94,7 +97,7 @@
                             <textarea class="form-control" name="taskDescription" rows="3"></textarea>
                             <input type="hidden" name="contentType" value="<%= "addItem" %>"/>
                         </div>
-                        <button type="submit" name="button" class="btn btn-outline-dark mt-2">Create</button>
+                        <button type="submit" name="button" class="btn btn-outline-dark mt-2">Add Item</button>
                     </form>
                 </div>
             </div>
