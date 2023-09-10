@@ -77,13 +77,13 @@
                                     <%= task.description %>
                                 </div>
                                 <input type="hidden" name="contentType" value="<%="remItem"%>"/>
-                                <button type="submit" name="delSchedID" value="<%= task._id %>">del</button>
+                                <button type="submit" name="delSchedID" value="<%= task._id %>" class="btn btn-outline-dark mt-2 mx-2">del</button>
                             <% }); %>
                         </form>
                     </ul>
                 </div>
                 <div class="createScheduleItem">
-                    <h1 class="flex">Add task</h1>
+                    <h1 class="flex">Add Task</h1>
                     <form action="/create" method="POST" class="my-3 mx-5">
                         <div class="form-group">
                             <label class="form-label">Start time</label>
