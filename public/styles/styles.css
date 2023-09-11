@@ -305,7 +305,7 @@ a{
 .grid-container{
   position: relative;
   display: grid;
-  gap: 15px;
+  gap: 25px;
   grid-template:  auto auto / minmax(min(200px,25vw), 1fr) minmax(min(400px,50vw), 1.8fr) minmax(min(200px,25vw), 1.2fr);
   margin: 20px;
 }
@@ -327,10 +327,16 @@ a{
   justify-content: center;
 }
 
+.flexBook-topAlign{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .flexbook{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   background-color: #D5CEA3;
   border-radius: 15px;
@@ -393,12 +399,51 @@ a{
   color: #D5CEA3;
 }
 
+/* schedule in home styling */
+.main-schedule-flexbox{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main-schedule-flex-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5%;
+  width: 100%;
+}
+
+.main-schedule-time{
+  background-color: #D5CEA3;
+  padding-left: 2%;
+  padding-right: 2%; 
+  border-radius: 15%;
+  height: 40%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  max-width: 30px;
+}
+
+.main-schedule-description{
+  background-color: #D5CEA3;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  min-width: 81%;
+}
+
+.main-schedule-title{
+  width: 100%;
+  border-radius: 10px;
+  background-color: #D5CEA3;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 
 /* todo list and goals list styling */
 
 .todoList{
   text-align: center;
-  margin-top: 5%;
 }
 
 .goalList{

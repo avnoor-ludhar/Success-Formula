@@ -2,7 +2,7 @@
 
         <main>
             <div class="grid-container">
-                <div class="grid-item flex">
+                <div class="grid-item flexBook-topAlign">
                     <div class="bookContent flexbook">
                         <h2 class="book-title">Recently Read</h2>
                         <img class="book-image" src="<%= book.img %>"/>
@@ -14,7 +14,28 @@
                         </a>
                     </div>
                 </div>
-                <div class="grid-item schedule-area"></div>
+                <div class="grid-item schedule-area">
+                    <div class="main-schedule-flexbox">
+                        <div class="main-schedule-flex-item">
+                            <div class="main-schedule-title flex">
+                                <h1>
+                                    Today's Schedule
+                                </h1>
+                            </div>
+                            
+                        </div>
+                        <% tasks.forEach((task)=>{ %>
+                            <div class="main-schedule-flex-item">
+                                <div class="flex main-schedule-time">
+                                    <p><%= task.startTime %> - <%= task.endTime %></p>
+                                </div>
+                                <div class="main-schedule-description">
+                                    <p><%= task.description %></p>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
                 <div class="grid-item todoGoalsArea">
                     <div class="todoList">
                         <div class="title">
