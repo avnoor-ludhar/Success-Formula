@@ -8,27 +8,30 @@
                         </div>   
                     </form>
             </div>
-            
-            <% if(books.length != 0) { %>
-                <div class="flexBookSearch">
-                    <form method="post" action="/books" class="flex-wrap">
-                        <% books.forEach((book, idx)=>{ %>
-                            <button type="submit" class="galleryItem flex" style="background-color: #D5CEA3;" name="chosenBook" value="<%= JSON.stringify(book.volumeInfo) %>">
-                                <% if(typeof book.volumeInfo.imageLinks == 'undefined'){ %>
-                                    <div class="noImgDisplay">
-                                        <p><%= book.volumeInfo.title %></p>
-                                        <img src="/images/error-svgrepo-com.svg" />
-                                    </div>
+            <% if(locals.books) {%>
+                <% if(books.length != 0) { %>
+                    <div class="flexBookSearch">
+                        <form method="post" action="/books" class="flex-wrap">
+                            <% books.forEach((book, idx)=>{ %>
+                                <button type="submit" class="galleryItem flex" style="background-color: #D5CEA3;" name="chosenBook" value="<%= JSON.stringify(book.volumeInfo) %>">
+                                    <% if(typeof book.volumeInfo.imageLinks == 'undefined'){ %>
+                                        <div class="noImgDisplay">
+                                            <p><%= book.volumeInfo.title %></p>
+                                            <img src="/images/error-svgrepo-com.svg" />
+                                        </div>
+                                        
+                                    <% } else{ %>
+                                    <img src="<%= book.volumeInfo.imageLinks.thumbnail %>"/>
                                     
-                                <% } else{ %>
-                                   <img src="<%= book.volumeInfo.imageLinks.thumbnail %>"/>
-                                   
-                                <% } %>
-                                
-                            </button>
-                        <% }); %>
-                    </form>
-                </div>
+                                    <% } %>
+                                    
+                                </button>
+                            <% }); %>
+                        </form>
+                    </div>
+                <% } %>
+            <% } else {%>
+                <h1 class="flex" style="font-size: 3rem;">No matching results!</h1>
             <% } %>
         </main>
 <%- include("partials/footer.ejs") %>
