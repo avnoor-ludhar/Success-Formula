@@ -230,10 +230,6 @@ app.get("/recentBook", async (req, res)=>{
     res.render("recentBook.ejs", {library: currUser.library});
 });
 
-app.get("/schedule", (req, res)=>{
-    res.render("schedule.ejs");
-});
-
 app.get("/create", async (req, res)=>{
     const foundUser = await User.findOne({_id: userID});
 
