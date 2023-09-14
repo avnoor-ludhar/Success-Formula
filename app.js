@@ -87,7 +87,7 @@ const goalsListID = "64f3539452d300fb323441d0";
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
-
+// gets data from mongodb database and renders into home.ejs template
 app.get("/", async (req, res)=>{
     try{
         const currUser = await User.findById(userID);
@@ -100,11 +100,12 @@ app.get("/", async (req, res)=>{
     }
 });
 
+// creaetes a new todo item in the list using data from front end and updating the todo list 
+// in list collection
 app.post("/todo", async (req, res)=>{
     try{
         const todoList = await List.findById(todoListID);
 
-        //remember about ["todo"]
         const newTodo = new Item({
             name: req.body["todo"]
         });
@@ -118,7 +119,7 @@ app.post("/todo", async (req, res)=>{
     }
 });
 
-
+// deletes item using mongodb array pull operator
 app.post("/todo/delete", async (req, res)=>{
     const deleteID = req.body.deleteTodo;
     await List.findOneAndUpdate({_id: todoListID}, {$pull: {items: {_id: deleteID}}});
@@ -126,12 +127,11 @@ app.post("/todo/delete", async (req, res)=>{
     res.redirect("/");
 });
 
-
+// goals list structured in the exact same way as todo list
 app.post("/goals", async (req, res)=>{
     try{
         const goalsList = await List.findById(goalsListID);
 
-        //remember about ["todo"]
         const newGoal = new Item({
             name: req.body["goal"]
         });
@@ -145,6 +145,7 @@ app.post("/goals", async (req, res)=>{
     }
 });
 
+// Delete functions in the exact same way as well
 app.post("/goals/delete", async (req, res)=>{
     const deleteID = req.body.deleteGoal;
     await List.findOneAndUpdate({_id: goalsListID}, {$pull: {items: {_id: deleteID}}});
@@ -153,7 +154,7 @@ app.post("/goals/delete", async (req, res)=>{
 });
 
 
-
+// 
 app.post("/", async (req, res)=>{
     try{
         const newRecentBookID =  req.body.newBookID ;
