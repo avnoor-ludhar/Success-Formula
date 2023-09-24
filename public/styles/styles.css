@@ -345,12 +345,13 @@ a{
 .bookContent{
   width: 25vw;
   height: 40vw;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .book-title{
   font-size: 3vw;
   padding: 5%;
-  font-family: 'ADLaM Display', cursive;
+  font-family: 'Mooli', sans-serif;
 }
 
 .book-image{
@@ -412,6 +413,7 @@ a{
   justify-content: space-between;
   gap: 5%;
   width: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 .main-schedule-time{
@@ -426,8 +428,7 @@ a{
 
 .main-schedule-description{
   background-color: #D5CEA3;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding: 2%;
   border-radius: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   min-width: 81%;
@@ -436,38 +437,38 @@ a{
 .main-schedule-title{
   width: 100%;
   border-radius: 10px;
+  padding: 2%;
   background-color: #D5CEA3;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  font-family: 'Mooli', sans-serif;
 }
 
 /* todo list and goals list styling */
 
 .todoList{
-  text-align: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .goalList{
-  text-align: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin-top: 8%;
 }
 
 .title{
+  text-align: center;
   background-color: #D5CEA3;
   box-sizing: border-box;
   width: 100%;
-  height: 60px;
+  height: 50%;
   padding-top:1px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   margin: auto;
   margin-bottom: none;
+  font-family: 'Mooli', sans-serif; 
+  border-bottom: 4px solid #1A120B;
 }
 
-
-.title h1{
-  position: relative;
-  bottom: 8px;
-}
 
 
 .newTodoItemDiv{
@@ -477,6 +478,7 @@ a{
   margin: auto;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  text-align: center;
 }
 
 
@@ -485,8 +487,9 @@ a{
   flex-direction: row;
   background-color: whitesmoke;
   align-items: center;
-  width: 100%;
+  width: 94%;
   height: 50px;
+  padding: 3%;
   margin: auto;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   font-size: max(1.25lvw, 0.8rem);
@@ -515,6 +518,7 @@ a{
 .todoContent{
   margin-left: 5%;
   max-width: 280px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .submitButton{

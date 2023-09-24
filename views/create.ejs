@@ -58,11 +58,11 @@
         <main>
             <div class="createSchedule">
                 <div class="createScheduleItem">
-                    <h1 class="flex">
+                    <h1 class="flex" style="font-family: 'Mooli', sans-serif;">
                         <%= dayOfWeek %>
                     </h1>
                     <ul class="list-group schedule">
-                        <form action="/create" method="post">
+                        <form action="/create" method="post" style="font-family: 'Roboto', sans-serif;">
                             <% tasks.forEach((task)=>{ %>
                                 <li class="list-group-item d-flex justify-content-between align-items-start">
                                 <div class="ms-2 me-auto">
@@ -79,7 +79,7 @@
                     </form>
                 </div>
                 <div class="createScheduleItem">
-                    <h1 class="flex">Add Task</h1>
+                    <h1 class="flex" style="font-family: 'Mooli', sans-serif;">Add Task</h1>
                     <form action="/create" method="POST" class="my-3 mx-5">
                         <div class="form-group">
                             <label class="form-label">Start time</label>
