@@ -96,7 +96,7 @@ app.get("/", async (req, res)=>{
 
         res.render("home.ejs", {book: currUser.recentBook, todo: todoList.items, goals: goalsList.items, tasks: currUser.todaySchedule.tasks});
     } catch(err){
-        console.log(err);
+        console.log(err.message);
     }
 });
 
@@ -115,7 +115,7 @@ app.post("/todo", async (req, res)=>{
         res.redirect("/");
 
     } catch(e){
-        console.log(e);
+        console.log(e.message);
     }
 });
 
