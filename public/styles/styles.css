@@ -61,11 +61,14 @@ a{
     border-radius: 20px;
     cursor: pointer;
     border: 2px solid #1A120B;
+    box-shadow: 
+    rgba(0, 0, 0, 0.4) 3px 3px 4px,
+    rgba(0, 0, 0, 0.4) -2px 3px 4px;
 }
 
 .button .extraBootstrap{
   position: relative;
-  top: 8px;
+  bottom: 1px;
   padding: 5px;
 }
 
@@ -91,6 +94,7 @@ a{
 
 .button:hover{
     background-color: #1A120B;
+    transform: scale(1.1);
 }
 
 
@@ -98,7 +102,7 @@ a{
     filter: invert(100%) sepia(72%) saturate(286%) hue-rotate(356deg) brightness(96%) contrast(87%);
 }
 
-.button:hover a{
+.button:hover .buttonTextStyle{
     color: #E5E5CB;
 }
 
@@ -345,7 +349,8 @@ a{
 .bookContent{
   width: 25vw;
   height: 40vw;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  padding-bottom: 5%;
 }
 
 .book-title{
@@ -385,10 +390,19 @@ a{
   cursor: pointer;
   border: 2px solid #1A120B;
   background-color: #D5CEA3;
+  box-shadow: 
+    rgba(0, 0, 0, 0.4) 3px 3px 4px,
+    rgba(0, 0, 0, 0.4) -2px 3px 4px;
+}
+
+.buttonTextStyle{
+  text-decoration: none;
+  color: #1A120B;
 }
 
 .gratitudeButton:hover{
   background-color: #1A120B;
+  transform: scale(1.1);
 }
 
 
@@ -396,7 +410,7 @@ a{
   filter: invert(91%) sepia(8%) saturate(968%) hue-rotate(11deg) brightness(92%) contrast(88%);;
 }
 
-.gratitudeButton:hover a{
+.gratitudeButton:hover .buttonTextStyle{
   color: #D5CEA3;
 }
 
@@ -422,7 +436,7 @@ a{
   padding-right: 2%; 
   border-radius: 15%;
   height: 40%;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   max-width: 30px;
 }
 
@@ -430,7 +444,7 @@ a{
   background-color: #D5CEA3;
   padding: 2%;
   border-radius: 10px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   min-width: 81%;
 }
 
@@ -439,19 +453,21 @@ a{
   border-radius: 10px;
   padding: 2%;
   background-color: #D5CEA3;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 20px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   font-family: 'Mooli', sans-serif;
 }
 
 /* todo list and goals list styling */
 
-.todoList{
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+.goalList{
+  margin-top: 8%;
+  box-shadow: rgba(50, 50, 93, 0.25) 20px 5px 20px -10px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 10px;
 }
 
-.goalList{
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  margin-top: 8%;
+.todoList{
+  box-shadow: rgba(50, 50, 93, 0.25) 5px 20px 20px -10px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 10px;
 }
 
 .title{
@@ -463,13 +479,12 @@ a{
   padding-top:1px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   margin: auto;
   margin-bottom: none;
   font-family: 'Mooli', sans-serif; 
   border-bottom: 4px solid #1A120B;
 }
-
-
 
 .newTodoItemDiv{
   width: 100%;
@@ -568,6 +583,7 @@ a{
   margin-bottom: 5%;
   background-color: whitesmoke;
   border-radius: 40px;
+  box-shadow: rgba(50, 50, 93, 0.25)  0px 20px 20px -20px , rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .bookSearchField{
@@ -594,6 +610,9 @@ a{
   cursor: pointer;
   margin-right: 10%;
   margin-left: 7%;
+  box-shadow: 
+    rgba(0, 0, 0, 0.4) 2px 2px 2px,
+    rgba(0, 0, 0, 0.4) -2px 2px 2px;
 }
 
 .bookSearchButton img{
@@ -610,6 +629,7 @@ a{
 
 .bookSearchButton:hover{
   background-color: #1A120B;
+  transform: scale(1.1);
 }
 
 .noImgDisplay{
