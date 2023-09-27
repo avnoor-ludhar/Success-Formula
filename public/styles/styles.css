@@ -1,5 +1,8 @@
 body{
     background-color: #E5E5CB;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
 }
 
 a{
@@ -705,14 +708,13 @@ a{
 
 /* footer styles */
 
-footer{
+.footer{
   position: relative;
-  left: 0;
-  bottom: 0;
   width: 100%;
   background-color: #E5E5CB;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin-top: auto;
 }
 
 .footer a{
