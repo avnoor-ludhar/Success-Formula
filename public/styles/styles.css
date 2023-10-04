@@ -360,6 +360,7 @@ a{
   font-size: 3vw;
   padding: 5%;
   font-family: 'Mooli', sans-serif;
+  text-align: center;
 }
 
 .book-image{
@@ -678,6 +679,8 @@ a{
 	overflow: hidden;
   margin-right: 2%;
   cursor: pointer;
+  min-width: 14%;
+  max-width: 150px;
 }
 
 .galleryItem:hover{

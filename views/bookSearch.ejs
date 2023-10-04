@@ -16,7 +16,11 @@
                                 <button type="submit" class="galleryItem flex" style="background-color: #D5CEA3;" name="chosenBook" value="<%= JSON.stringify(book.volumeInfo) %>">
                                     <% if(typeof book.volumeInfo.imageLinks == 'undefined'){ %>
                                         <div class="noImgDisplay">
-                                            <p><%= book.volumeInfo.title %></p>
+                                            <%if (book.volumeInfo.title.length > 50) { %>
+                                            <p><%= book.volumeInfo.title.slice(0,30)%>...</p>
+                                            <% } else { %>
+                                                <p><%= book.volumeInfo.title %></p>
+                                            <% } %>
                                             <img src="/images/error-svgrepo-com.svg" />
                                         </div>
                                         
