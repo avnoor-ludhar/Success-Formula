@@ -94,7 +94,7 @@ app.get("/", async (req, res)=>{
         const todoList = await List.findById(todoListID);
         const goalsList = await List.findById(goalsListID);
 
-        res.render("home.ejs", {book: currUser.recentBook, todo: todoList.items, goals: goalsList.items, tasks: currUser.todaySchedule.tasks});
+        res.render("home.ejs", {book: currUser.recentBook, todo: todoList.items, goals: goalsList.items, tasks: currUser.todaySchedule.tasks.sort()});
     } catch(err){
         console.log(err.message);
     }

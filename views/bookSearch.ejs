@@ -1,11 +1,10 @@
 <%- include("partials/header.ejs") %>
         <main>
             <div class="flex">
-                    <form action="/searchBook" method="post" class="bookSearchDiv flex">
-                        <div class="flex">
-                            <input class="bookSearchField" type="text" name="book" placeholder="Search your book!" autocomplete="off">
-                            <button class="bookSearchButton"type="submit" class="centerSearch"><img src="/images/search-book-svgrepo-com.svg"/></button>
-                        </div>   
+                    <form action="/searchBook" method="post" class="bookSearchDiv">
+                        <div class="left"></div>
+                        <input class="bookSearchField" type="text" name="book" placeholder="Search your book!" autocomplete="off">
+                        <button class="bookSearchButton"type="submit" class="centerSearch"><img src="/images/search-book-svgrepo-com.svg"/></button>
                     </form>
             </div>
             <% if(locals.books) {%>
