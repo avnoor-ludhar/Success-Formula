@@ -1,5 +1,5 @@
 # Success Formula 
-Video Demo:  <URL HERE>
+Video Demo:  https://youtu.be/EQrZ-NVgseg?si=G1n8yxTkeacVSUes
 Description:
 
 The goal of this project was to create a web application that made making schedules easy for myself and hopefully many others that choose to use the application. I did this using my knowledge that I gained from cs50 and another udemy course on web development. This led me to use node.js, mongodb, mongoose, axios, express and ejs to create my full stack web application.
